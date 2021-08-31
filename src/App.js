@@ -1,23 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route } from "react-router-dom";
+import MainPage from "./page/MainPage";
+import NewList from "./page/NewList";
+import NewTask from "./page/NewTask";
+import "bootstrap/dist/css/bootstrap.min.css";
+import NewListForm from "./components/Layouts/NewListForm";
+import NewTaskForm from "./components/Layouts/NewTaskForm";
+import UpdateListForm from "./components/Layouts/UpdateListForm";
+import UpdateTaskForm from "./components/Layouts/UpdateTaskForm";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Route path="/" exact>
+        <div className="card">
+          <MainPage></MainPage>
+        </div>
+      </Route>
+      <Route path="/new-list-form">
+        <div>
+          <NewListForm></NewListForm>
+        </div>
+      </Route>
+      <Route path="/update-list-form">
+        <div>
+          <UpdateListForm></UpdateListForm>
+        </div>
+      </Route>
+      <Route path="/new-task-form">
+        <div>
+          <NewTaskForm></NewTaskForm>
+        </div>
+      </Route>
+      <Route path="/update-task-form"><UpdateTaskForm/></Route>
     </div>
   );
 }
