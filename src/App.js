@@ -1,12 +1,10 @@
 import { Route } from "react-router-dom";
 import MainPage from "./page/MainPage";
-import NewList from "./page/NewList";
-import NewTask from "./page/NewTask";
 import "bootstrap/dist/css/bootstrap.min.css";
-import NewListForm from "./components/Layouts/NewListForm";
-import NewTaskForm from "./components/Layouts/NewTaskForm";
-import UpdateListForm from "./components/Layouts/UpdateListForm";
-import UpdateTaskForm from "./components/Layouts/UpdateTaskForm";
+import NewListForm from "./page/Forms/NewListForm";
+import NewTaskForm from "./page/Forms/NewTaskForm";
+import UpdateListForm from "./page/Forms/UpdateListForm";
+import UpdateTaskForm from "./page/Forms/UpdateTaskForm";
 
 function App() {
   return (
@@ -31,7 +29,9 @@ function App() {
           <NewTaskForm></NewTaskForm>
         </div>
       </Route>
-      <Route path="/update-task-form"><UpdateTaskForm/></Route>
+      <Route path="/update-task-form">
+        <UpdateTaskForm />
+      </Route>
     </div>
   );
 }

@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import ListItem from "./LIstItem";
-
+import ListView from "./Listview";
 
 function Board() {
   const [isLoading, setIsLoading] = useState(true);
@@ -18,14 +17,16 @@ function Board() {
 
         for (const _id in data.data) {
           console.log(_id);
+          console.log(data.data[_id]);
           const list = {
             ...data.data[_id],
-            
           };
+
+          console.log(list.cards);
+
           responseArray.push(list);
           console.log(list.name);
           console.log(typeof list);
-          console.log(typeof list.cards);
         }
         setIsLoading(false);
 
@@ -39,7 +40,18 @@ function Board() {
     </section>;
   }
 
-  return <ListItem lists={loadedLists}></ListItem>;
+  return (
+    <div className="row">
+      {loadedLists.map((list) => {
+        console.log(list.cards);
+        console.log(list._id);
+        console.log(list.name);
+        return (
+          <ListView id={list._id} title={list.name} cardarray={list.cards} />
+        );
+      })}
+    </div>
+  );
 }
 
 export default Board;

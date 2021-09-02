@@ -18,7 +18,10 @@ function CardView(props) {
     window.location.reload();
   };
   return (
-    <div className="card m-2" style={{ width: "15rem" }}>
+    <div
+      className="card m-2 bg-secondary.bg-gradient"
+      style={{ width: "15rem" }}
+    >
       <div className="card-body">
         <h5 className="card-title">{props.title}</h5>
         <p className="card-text">{props.description}</p>
@@ -26,6 +29,7 @@ function CardView(props) {
           className="btn btn-outline-success m-2"
           onClick={UpdateCardHandler}
         >
+
           Update
         </button>
         <button className="btn btn-outline-danger" onClick={DeleteCardHandler}>
